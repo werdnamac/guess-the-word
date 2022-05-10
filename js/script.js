@@ -2,13 +2,14 @@ const guessedLetters = document.querySelector(".guessed-letters");
 const guessButton = document.querySelector(".guess");
 const inputLetter = document.querySelector(".letter");
 const wordInProgress = document.querySelector(".word-in-progress");
-const remainingGuesses = document.querySelector(".remaining");
+const remainingGuessesDisplay = document.querySelector(".remaining");
 const numberRemainingGuesses = document.querySelector(".remaining span");
 const message = document.querySelector(".message");
 const playAgainButton = document.querySelector(".play-again");
 
 let word = "magnolia";
 const guessedLettersArray = [];
+let remainingGuesses = 8;
 
 const addCircles = function (word) {
     const circles = []
