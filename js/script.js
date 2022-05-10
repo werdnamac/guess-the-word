@@ -54,15 +54,40 @@ const validate = function (input) {
 const makeGuess = function(guess) {
     let allCapsGuess = guess.toUpperCase();
     
-    //they used console.log(guessedLettersArray); here
+    //they used guessedLettersArray.includes(allCapsGuess)
     if (guessedLettersArray.indexOf(allCapsGuess) !== -1) {
         message.innerText = "You already guessed that letter. Please try again."
     } else {
         guessedLettersArray.push(allCapsGuess);
         console.log(guessedLettersArray);
     }
+    updateWordInProgress(guessedLettersArray);
+};
+
+
+const updateWordInProgress = function(guessedLettersArray) {
+    const wordUpper = word.toUpperCase();
+    const wordArray = wordUpper.split("");
+    const currentWord = [];
+    for (let letter of wordArray) {
+        if (guessedLettersArray.includes(letter)) {
+            currentWord.push(letter)
+        }   else {
+            currentWord.push("● ")
+            };
+        
+    };
+    wordInProgress.innerText = currentWord.join("");
+    didPlayerWin(wordInProgress);
+    console.log(wordInProgress);
     
 };
 
 
-
+const didPlayerWin = function(wordInProgress) {
+    
+    if (wordInProgress.innerText === word.toUpperCase()) {
+        message.classList.add("win");
+        message.innerHTML = '<p class="highlight">You won! Hooray! Great work!</p>';
+    }
+};
