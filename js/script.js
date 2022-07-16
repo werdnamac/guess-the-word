@@ -64,7 +64,7 @@ guessButton.addEventListener("click", function (e) {
 // validate the guess
 const validate = function (input) {
     // create a variable that contains/is all letters a-z and A-Z
-    const acceptedLetter = /[a-zA-z]/;
+    const acceptedLetter = /[a-zA-Z]/;
     if (input.length === 0) {
         message.innerText = "You didn't enter anything. Please enter a letter."
     } else if (input.length > 1) {
